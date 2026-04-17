@@ -643,9 +643,235 @@ html.lsw [data-t], html.lsw [data-th] { opacity: 0; }
   .c-grid { grid-template-columns: 1fr; max-width: 260px; }
   .lb-prev { left: 8px; } .lb-next { right: 8px; }
 }
+
+/* ════════════════════════════════════════════════════
+   ✨ FUTURISTIC DESIGN ENHANCEMENTS — Matrix Edition
+════════════════════════════════════════════════════ */
+
+/* ── Matrix Canvas ─────────────────────────────────── */
+#matrix-bg {
+  position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+  z-index: -2; pointer-events: none;
+  opacity: 0.18;
+  transition: opacity 0.6s ease;
+}
+[data-theme="light"] #matrix-bg { opacity: 0.05; }
+
+/* ── Dark vignette overlay to keep content readable ── */
+body::after {
+  content: ''; position: fixed; inset: 0; pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 60% 20%, rgba(107,138,255,.03) 0%, transparent 60%),
+    radial-gradient(ellipse at 20% 80%, rgba(78,207,179,.02) 0%, transparent 55%);
+}
+
+/* ── Custom Scrollbar ──────────────────────────────── */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--a), var(--a2));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--a2); }
+
+/* ── Hero Name Glow ─────────────────────────────────── */
+.hero-name .ac {
+  text-shadow: 0 0 40px rgba(107,138,255,.45), 0 0 80px rgba(107,138,255,.18);
+}
+
+/* ── Nav Logo Glow ──────────────────────────────────── */
+.nav-logo em {
+  text-shadow: 0 0 18px rgba(107,138,255,.8), 0 0 40px rgba(107,138,255,.3);
+}
+.nav-links a:hover {
+  text-shadow: 0 0 10px rgba(107,138,255,.4);
+}
+
+/* ── Availability Badge Glow ────────────────────────── */
+.avail {
+  box-shadow: 0 0 18px rgba(78,207,179,.22), inset 0 0 12px rgba(78,207,179,.06);
+}
+.avail-dot {
+  box-shadow: 0 0 6px rgba(78,207,179,.9);
+}
+
+/* ── Enhanced Primary Button ────────────────────────── */
+.btn-prim {
+  box-shadow:
+    0 0 24px rgba(107,138,255,.38),
+    0 0 48px rgba(107,138,255,.12),
+    0 2px 8px rgba(0,0,0,.3);
+  letter-spacing: .01em;
+}
+.btn-prim:hover {
+  transform: translateY(-2px) scale(1.025);
+  box-shadow:
+    0 0 36px rgba(107,138,255,.58),
+    0 0 72px rgba(107,138,255,.2),
+    0 6px 20px rgba(0,0,0,.35);
+}
+
+/* ── Ghost Button Glow on Hover ─────────────────────── */
+.btn-ghost:hover {
+  box-shadow: 0 0 16px rgba(107,138,255,.14), 0 4px 12px rgba(0,0,0,.2);
+}
+
+/* ── Hero Card Animated Border ──────────────────────── */
+.hero-card {
+  background:
+    linear-gradient(var(--bg-c), var(--bg-c)) padding-box,
+    linear-gradient(135deg, var(--a), var(--a2), var(--a3)) border-box;
+  border: 1px solid transparent !important;
+  animation: cardBorderSpin 6s linear infinite;
+}
+@keyframes cardBorderSpin {
+  0%   { background: linear-gradient(var(--bg-c),var(--bg-c)) padding-box, linear-gradient(0deg,   var(--a),var(--a2),var(--a3)) border-box; }
+  33%  { background: linear-gradient(var(--bg-c),var(--bg-c)) padding-box, linear-gradient(120deg, var(--a2),var(--a3),var(--a)) border-box; }
+  66%  { background: linear-gradient(var(--bg-c),var(--bg-c)) padding-box, linear-gradient(240deg, var(--a3),var(--a),var(--a2)) border-box; }
+  100% { background: linear-gradient(var(--bg-c),var(--bg-c)) padding-box, linear-gradient(360deg, var(--a),var(--a2),var(--a3)) border-box; }
+}
+
+/* ── Profile Photo Pulse Glow ───────────────────────── */
+.photo-wrap {
+  animation: photoGlow 3s ease-in-out infinite alternate;
+}
+@keyframes photoGlow {
+  from { box-shadow: 0 0 22px rgba(107,138,255,.22); }
+  to   { box-shadow: 0 0 44px rgba(107,138,255,.5), 0 0 80px rgba(184,164,255,.18); }
+}
+
+/* ── Skill Bar Glow ─────────────────────────────────── */
+.sk-bar { filter: drop-shadow(0 0 3px currentColor); }
+.sk-bar-wrap { background: rgba(120,120,200,.08); }
+
+/* ── Skill Card Enhanced Hover ──────────────────────── */
+.skill-card:hover {
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.4),
+    0 0 28px rgba(107,138,255,.12),
+    inset 0 0 0 1px rgba(107,138,255,.15);
+}
+
+/* ── Project Card Enhanced Hover ────────────────────── */
+.proj-home-card:hover,
+.proj-full-card:hover {
+  box-shadow:
+    0 12px 40px rgba(0,0,0,.5),
+    0 0 32px rgba(107,138,255,.12);
+}
+
+/* ── Contact Card Enhanced Hover ────────────────────── */
+.c-card:hover {
+  box-shadow:
+    0 8px 32px rgba(0,0,0,.4),
+    0 0 28px rgba(107,138,255,.15);
+}
+
+/* ── Info Card Enhanced Hover ───────────────────────── */
+.info-card:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.3), 0 0 20px rgba(107,138,255,.08);
+}
+
+/* ── Contact Heading Outline Glow ───────────────────── */
+.contact-head .outline {
+  text-shadow: 0 0 24px rgba(107,138,255,.28);
+}
+
+/* ── Photo Item Enhanced Hover ──────────────────────── */
+.photo-item:hover {
+  box-shadow:
+    0 14px 44px rgba(0,0,0,.55),
+    0 0 24px rgba(107,138,255,.12);
+}
+
+/* ── Pill Hover Glows ───────────────────────────────── */
+.p-blue:hover   { box-shadow: 0 0 12px rgba(107,138,255,.35); }
+.p-violet:hover { box-shadow: 0 0 12px rgba(184,164,255,.35); }
+.p-green:hover  { box-shadow: 0 0 12px rgba(78,207,179,.35);  }
+
+/* ── Emoji on Section Labels via CSS ────────────────── */
+#about .s-label::after            { content: ' 👤'; font-style:normal; letter-spacing:0; }
+#skills .s-label::after           { content: ' ⚡'; font-style:normal; letter-spacing:0; }
+#contact .s-label::after          { content: ' 📬'; font-style:normal; letter-spacing:0; }
+#projects-home .s-label::after    { content: ' 🚀'; font-style:normal; letter-spacing:0; }
+#page-photo .s-label::after       { content: ' 📷'; font-style:normal; letter-spacing:0; }
+#page-projects .s-label::after    { content: ' 💻'; font-style:normal; letter-spacing:0; }
+
+/* ── Hero Badge Emoji ───────────────────────────────── */
+.avail::before { content: '🟢 '; font-style:normal; }
+
+/* ── Nav CV Button Futuristic Look ─────────────────── */
+.nav-cv {
+  background: linear-gradient(135deg, rgba(107,138,255,.08), rgba(184,164,255,.06));
+}
+.nav-cv:hover {
+  background: linear-gradient(135deg, rgba(107,138,255,.18), rgba(184,164,255,.12));
+  box-shadow: 0 0 14px rgba(107,138,255,.18);
+}
+
+/* ── Nav Border Glow ────────────────────────────────── */
+.nav {
+  box-shadow: 0 1px 0 rgba(107,138,255,.08), 0 4px 24px rgba(0,0,0,.25);
+}
+
+/* ── Footer Gradient Top ────────────────────────────── */
+.footer {
+  background: linear-gradient(to top, rgba(107,138,255,.04) 0%, transparent 100%);
+}
+
+/* ── Edu Card Glow ──────────────────────────────────── */
+.edu-card {
+  box-shadow: 0 0 24px rgba(107,138,255,.06);
+  transition: box-shadow .3s, border-color .25s, transform .25s;
+}
+.edu-card:hover {
+  box-shadow: 0 4px 24px rgba(0,0,0,.3), 0 0 20px rgba(107,138,255,.1);
+}
+
+/* ── Ethic Card Glow ────────────────────────────────── */
+.ethic-card {
+  box-shadow: 0 0 20px rgba(107,138,255,.05);
+}
+
+/* ── S-Link hover glow ──────────────────────────────── */
+.s-link:hover {
+  text-shadow: 0 0 8px rgba(107,138,255,.3);
+}
+
+/* ── GH Link hover glow ─────────────────────────────── */
+.gh-link:hover {
+  box-shadow: 0 0 14px rgba(184,164,255,.2);
+}
+
+/* ── Page Hero gradient ─────────────────────────────── */
+.page-hero {
+  background: linear-gradient(to bottom, var(--bg-s) 80%, var(--bg));
+}
+
+/* ── Scroll Hint enhanced ───────────────────────────── */
+.scroll-hint {
+  letter-spacing: .18em;
+  opacity: .6;
+}
+.scroll-line {
+  box-shadow: 0 0 8px rgba(107,138,255,.4);
+}
+
+/* ── Futuristic Grid Texture Enhancement ────────────── */
+body::before {
+  background-image:
+    linear-gradient(rgba(107,138,255,.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(107,138,255,.03) 1px, transparent 1px),
+    radial-gradient(ellipse at 50% 0%, rgba(107,138,255,.04) 0%, transparent 70%);
+  background-size: 48px 48px, 48px 48px, 100% 100%;
+}
 </style>
 </head>
 <body>
+
+<!-- Matrix Rain Canvas Background -->
+<canvas id="matrix-bg" aria-hidden="true"></canvas>
 
 <!-- NAV -->
 <nav class="nav">
@@ -1059,7 +1285,7 @@ html.lsw [data-t], html.lsw [data-th] { opacity: 0; }
     <div class="photo-grid" id="photoGrid">
       <div class="photo-item" data-cat="portrait" data-title="Portrait 01"><img src="images/portrait-01.jpg" class="photo-ph" style="height:270px; object-fit:cover; width:100%;" alt="Portrait 01"><span class="ph-cat-tag">Portrait</span><div class="photo-overlay"><div class="ph-lbl">Portrait 01</div></div></div>
       <div class="photo-item" data-cat="street"   data-title="Street 01"><img src="images/street-01.jpg" class="photo-ph" style="height:200px; object-fit:cover; width:100%;" alt="Street 01"><span class="ph-cat-tag">Street</span><div class="photo-overlay"><div class="ph-lbl">Street 01</div></div></div>
-      <div class="photo-item" data-cat="landscape"data-title="Landscape 01"><img src="images/landscape-01.JPG" class="photo-ph" style="height:310px; object-fit:cover; width:100%;" alt="Landscape 01"><span class="ph-cat-tag">Landscape</span><div class="photo-overlay"><div class="ph-lbl">Landscape 01</div></div></div>
+      <div class="photo-item" data-cat="landscape"data-title="Landscape 01"><img src="images/landscape-01.jpg" class="photo-ph" style="height:310px; object-fit:cover; width:100%;" alt="Landscape 01"><span class="ph-cat-tag">Landscape</span><div class="photo-overlay"><div class="ph-lbl">Landscape 01</div></div></div>
       <div class="photo-item" data-cat="event"    data-title="Event 01"><img src="images/event-01.jpg" class="photo-ph" style="height:230px; object-fit:cover; width:100%;" alt="Event 01"><span class="ph-cat-tag">Event</span><div class="photo-overlay"><div class="ph-lbl">Event 01</div></div></div>
       <div class="photo-item" data-cat="portrait" data-title="Portrait 02"><img src="images/portrait-02.jpg" class="photo-ph" style="height:340px; object-fit:cover; width:100%;" alt="Portrait 02"><span class="ph-cat-tag">Portrait</span><div class="photo-overlay"><div class="ph-lbl">Portrait 02</div></div></div>
       <div class="photo-item" data-cat="street"   data-title="Street 02"><img src="images/street-02.jpg" class="photo-ph" style="height:190px; object-fit:cover; width:100%;" alt="Street 02"><span class="ph-cat-tag">Street</span><div class="photo-overlay"><div class="ph-lbl">Street 02</div></div></div>
@@ -1298,6 +1524,167 @@ document.addEventListener('DOMContentLoaded',()=>{
   lbItems=[...document.querySelectorAll('.photo-item')];
   initReveal();
 });
+</script>
+
+<!-- ████ MATRIX RAIN + DESIGN ENHANCEMENTS ████ -->
+<script>
+(function(){
+  /* ── Matrix Rain ──────────────────────────────── */
+  const canvas = document.getElementById('matrix-bg');
+  const ctx    = canvas.getContext('2d');
+
+  const CHARS  = 'アァイィウゥエェオォカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEF<>[]{}01';
+  const FONT_SIZE = 14;
+  let cols, drops;
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    cols  = Math.floor(canvas.width / FONT_SIZE);
+    drops = Array.from({length: cols}, () => Math.random() * -canvas.height / FONT_SIZE | 0);
+  }
+
+  function getMatrixColor(isHead) {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    if (isDark) {
+      return isHead
+        ? 'rgba(180, 255, 200, 0.95)'   /* bright head char */
+        : 'rgba(0, 200, 80, 0.55)';     /* trail chars */
+    } else {
+      return isHead
+        ? 'rgba(0, 140, 60, 0.7)'
+        : 'rgba(0, 180, 80, 0.2)';
+    }
+  }
+
+  function draw() {
+    const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+    // Fading trail
+    ctx.fillStyle = isDark
+      ? 'rgba(8, 8, 16, 0.055)'
+      : 'rgba(245, 246, 250, 0.06)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.font = `${FONT_SIZE}px "JetBrains Mono", monospace`;
+
+    for (let i = 0; i < drops.length; i++) {
+      const char = CHARS[Math.random() * CHARS.length | 0];
+      const x    = i * FONT_SIZE;
+      const y    = drops[i] * FONT_SIZE;
+
+      // Head character is brighter
+      ctx.fillStyle = getMatrixColor(true);
+      ctx.shadowBlur  = 8;
+      ctx.shadowColor = 'rgba(0, 255, 100, 0.8)';
+      ctx.fillText(char, x, y);
+
+      // Occasional dimmer trail characters (for depth)
+      if (Math.random() > 0.9) {
+        ctx.fillStyle  = getMatrixColor(false);
+        ctx.shadowBlur = 0;
+        ctx.fillText(CHARS[Math.random() * CHARS.length | 0], x, y - FONT_SIZE);
+      }
+
+      ctx.shadowBlur = 0;
+
+      // Reset to random position above screen occasionally
+      if (y > canvas.height && Math.random() > 0.975) {
+        drops[i] = Math.random() * -20 | 0;
+      }
+      drops[i]++;
+    }
+  }
+
+  resize();
+  window.addEventListener('resize', resize);
+  setInterval(draw, 50);
+
+  /* ── Subtle tilt on hero card ─────────────────── */
+  const heroCard = document.querySelector('.hero-card');
+  if (heroCard) {
+    heroCard.addEventListener('mousemove', e => {
+      const r = heroCard.getBoundingClientRect();
+      const x = (e.clientX - r.left) / r.width  - 0.5;
+      const y = (e.clientY - r.top)  / r.height - 0.5;
+      heroCard.style.transform = `perspective(600px) rotateY(${x * 8}deg) rotateX(${-y * 8}deg) translateZ(6px)`;
+    });
+    heroCard.addEventListener('mouseleave', () => {
+      heroCard.style.transform = '';
+      heroCard.style.transition = 'transform 0.5s cubic-bezier(.22,.9,.36,1)';
+      setTimeout(() => heroCard.style.transition = '', 500);
+    });
+  }
+
+  /* ── Skill bar entrance animation ────────────── */
+  document.querySelectorAll('.sk-bar').forEach(bar => {
+    const w = bar.style.width;
+    bar.style.width = '0%';
+    bar.style.transition = 'width 0s';
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          setTimeout(() => {
+            bar.style.transition = 'width 1.1s cubic-bezier(.22,.9,.36,1)';
+            bar.style.width = w;
+          }, 120);
+          observer.unobserve(bar);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(bar);
+  });
+
+  /* ── Nav active link highlight on scroll ──────── */
+  const sections = ['home','about','skills','projects-home','contact'];
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const sectionEls = sections.map(id => document.getElementById(id)).filter(Boolean);
+
+  window.addEventListener('scroll', () => {
+    let cur = '';
+    sectionEls.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) cur = s.id;
+    });
+    navLinks.forEach(a => {
+      const onclick = a.getAttribute('onclick') || '';
+      const isActive = (cur === 'about'   && onclick.includes('about'))
+                    || (cur === 'skills'  && onclick.includes('skills'))
+                    || (cur === 'contact' && onclick.includes('contact'))
+                    || (cur === 'home'    && !onclick.includes('goSection'));
+      a.classList.toggle('act', isActive);
+    });
+  }, { passive: true });
+
+  /* ── Smooth hover shine on cards ─────────────── */
+  document.querySelectorAll('.proj-home-card, .proj-full-card, .c-card, .skill-card').forEach(card => {
+    card.addEventListener('mousemove', e => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+      const y = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+      card.style.setProperty('--mx', x + '%');
+      card.style.setProperty('--my', y + '%');
+    });
+  });
+
+  /* ── Typewriter cursor blink on hero name ─────── */
+  const heroName = document.querySelector('.hero-name');
+  if (heroName) {
+    const cursor = document.createElement('span');
+    cursor.style.cssText = `
+      display:inline-block; width:3px; height:.88em;
+      background:var(--a); margin-left:4px; vertical-align:middle;
+      animation:cursorBlink 1.1s step-end infinite;
+    `;
+    // Inject blink keyframes
+    const kf = document.createElement('style');
+    kf.textContent = `@keyframes cursorBlink{0%,100%{opacity:1}50%{opacity:0}}`;
+    document.head.appendChild(kf);
+    heroName.appendChild(cursor);
+    // Remove after 3.5s (typing complete feel)
+    setTimeout(() => cursor.remove(), 3500);
+  }
+
+})();
 </script>
 </body>
 </html>
